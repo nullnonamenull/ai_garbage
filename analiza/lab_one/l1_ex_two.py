@@ -11,12 +11,15 @@ columns = [
 df = pd.read_csv(file_path, sep=separator, names=columns, header=2)
 df = df.apply(lambda x: x.str.replace(',', '.')).astype(float)
 
-wavenumber_985 = 985.0
+wavenumber_985 = 1380
 index_985 = df.iloc[(df["Wavenumber [cm^-1]"] - wavenumber_985).abs().argsort()[:1]].index[0]
 
 normalized_df = df.copy()
 
 # dlczego  985? do przekminy
+
+# praca dioty luminscecyjnej -> nie do końca chodzi o najbardziej prawdopodobny pik -> praca diody luminescencyjnej
+# efekt rozproszenia wiązki
 
 # normalizacja -> skalowanie danych -> wszystkie wartości w kolumnie wyrażane w stosunku do jednej wybranej
 # aktualizacjka kazdej kolumy
